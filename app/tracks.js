@@ -48,7 +48,7 @@ router.get("/:id", async (req, res) => {
     res.send(tracksList);
 });
 
-router.post("/",  upload.none(), (req, res) => {
+router.post("/", [auth, permit('admin'), upload.none()], (req, res) => {
 
     const track = new Track(req.body);
     track.save()
