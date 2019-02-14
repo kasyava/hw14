@@ -30,6 +30,21 @@ $(() => {
 
     checkAuth();
 
+    $('#register').on('click', (e) =>{
+        e.preventDefault();
+
+        const data = new FormData(document.getElementById('formRegister'));
+
+        $.ajax({
+            url: 'http://localhost:8000/users',
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST'
+        })
+
+    });
+
 
     $('#idLogout').on('click', (e) => {
         e.preventDefault();
@@ -300,6 +315,15 @@ $(() => {
             let divName = $('<div class="message-author">').append(title);
             let divText = $('<div class="message-text">').append(artist, year, allTracks);
 
+
+            if(user!==null && user.role==='admin'){
+                let delAlbum = $(`<a id="delAlbum${data[i]._id}" href="">`).text("УДАЛИТЬ АЛЬБОМ");
+                divText.append(delAlbum);
+
+            }
+
+
+
             div.append(imgDiv, divName, divText);
             container.append(div);
 
@@ -311,6 +335,28 @@ $(() => {
                     .then((responce) =>printTracks(responce));
 
             });
+
+
+            $(`#delAlbum${data[i]._id}`).on('click', (e)=>{
+
+                e.preventDefault();
+
+                $.ajax({
+                    headers: header,
+                    url: baseURL + 'albums/' + data[i]._id,
+                    type: 'DELETE',
+                    processData: false,
+                    contentType: false
+                })
+                    .then(responce => {
+                        console.log(responce);
+                        getQuery('albums').then(result => printAllAlbums(result));
+
+                    });
+
+
+            });
+
         }
     };
 
