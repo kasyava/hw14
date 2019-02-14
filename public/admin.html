@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home work #10 - Admin</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="one">
+        <a id="idBack">Назад</a>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="frm">
+        <h2>Добавление исполнителя</h2>
+        <form id="addArtist">
+            <div class="form-group">
+                <label for="artistName">Исполнитель</label>
+                <input class="form-control" type="text" id="artistName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="artistInformation">Информация</label>
+                <input class="form-control" type="text" id="artistInformation" name="information">
+            </div>
+            <div class="form-group">
+                <label for="artistImage">Фото</label>
+                <input class="form-control-file" type="file" id="artistImage" name="image">
+            </div>
+            <button class="btn btn-primary" id="btnAddArtist">Add</button>
+
+        </form>
+    </div>
+    <br><hr><br>
+    <div class="frm">
+        <h2>Добавление альбома</h2>
+        <form id="addAlbum">
+            <div class="form-group">
+                <label for="albumTitle">Название альбома</label>
+                <input class="form-control" type="text" id="albumTitle" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="albumArtist">Исполнитель</label>
+                <select class="form-control" name="artist" id="albumArtist"></select>
+            </div>
+            <div class="form-group">
+                <label for="albumYear">Год выпуска</label>
+                <input class="form-control" type="number" id="albumYear" name="year">
+            </div>
+            <div class="form-group">
+                <label for="albumCover">Обложка альбома</label>
+                <input class="form-control-file" type="file" id="albumCover" name="cover">
+            </div>
+            <button class="btn btn-primary" id="btnAddAlbum">Add</button>
+
+        </form>
+    </div>
+    <br><hr><br>
+    <div class="frm">
+        <h2>Добавление композиции</h2>
+
+        <form id="addTrack">
+            <div class="form-group">
+                <label for="trackTitle">Название композиции</label>
+                <input class="form-control" type="text" id="trackTitle" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="trackAlbum">Альбом</label>
+                <select class="form-control" name="album" id="trackAlbum"></select>
+            </div>
+            <div class="form-group">
+                <label for="trackDuration">Продолжительность композиции</label>
+                <input class="form-control" type="text" id="trackDuration" name="duration">
+            </div>
+            <button class="btn btn-primary" id="btnAddTrack">Add</button>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
